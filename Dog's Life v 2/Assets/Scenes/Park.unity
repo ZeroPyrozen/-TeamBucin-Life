@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.53033906, g: 0.5694925, b: 0.5380608, a: 1}
+  m_IndirectSpecularColor: {r: 0.5303386, g: 0.5694918, b: 0.5380598, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1010,6 +1010,8 @@ GameObject:
   - component: {fileID: 100019287}
   - component: {fileID: 100019286}
   - component: {fileID: 100019288}
+  - component: {fileID: 100019290}
+  - component: {fileID: 100019289}
   m_Layer: 0
   m_Name: Tile_Intersection (1)
   m_TagString: Untagged
@@ -1093,6 +1095,32 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300008, guid: 72e643619fa32984785527a0c110a313, type: 3}
+--- !u!65 &100019289
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100019284}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4157104, y: 8.03128, z: 1.0817873}
+  m_Center: {x: -3.7534103, y: 0.0004501343, z: 0.37638357}
+--- !u!65 &100019290
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100019284}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1758957, y: 8.007537, z: 1.2238616}
+  m_Center: {x: 4.034992, y: 0.012318612, z: 0.61670136}
 --- !u!1 &109361791
 GameObject:
   m_ObjectHideFlags: 0
@@ -3573,7 +3601,7 @@ SphereCollider:
   m_GameObject: {fileID: 491335047}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 2.7587168
   m_Center: {x: 0.000000013160886, y: 1.7586472, z: -0.50007045}
@@ -3613,6 +3641,33 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!64 &491335053
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491335047}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 0}
+--- !u!65 &491335054
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491335047}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5316625, y: 5.454804, z: 7.7955384}
+  m_Center: {x: -0.23192489, y: 2.2273989, z: 0.51469356}
 --- !u!1 &499179896
 GameObject:
   m_ObjectHideFlags: 0
@@ -5731,7 +5786,7 @@ GameObject:
   - component: {fileID: 845839356}
   - component: {fileID: 845839355}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: FirstPersonCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5744,8 +5799,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845839353}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.045, y: 2.533, z: 1.86}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 8.11, z: 2.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1308131856}
@@ -5792,7 +5847,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 42.556503
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -8584,9 +8639,9 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.046000004, y: 0.010000001, z: 0.034}
+  m_Extents: {x: 0.06, y: 0.035, z: 0.034}
   m_MoveThreshold: 0.1
-  m_Carve: 1
+  m_Carve: 0
   m_CarveOnlyStationary: 0
   m_Center: {x: -0.002, y: 0, z: 0.0050000004}
   m_TimeToStationary: 0.5
@@ -9928,6 +9983,7 @@ GameObject:
   - component: {fileID: 1540629654}
   - component: {fileID: 1540629656}
   - component: {fileID: 1540629655}
+  - component: {fileID: 1540629657}
   m_Layer: 0
   m_Name: Trassh Bin (3)
   m_TagString: Untagged
@@ -9997,6 +10053,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540629653}
   m_Mesh: {fileID: 4300050, guid: 72e643619fa32984785527a0c110a313, type: 3}
+--- !u!65 &1540629657
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540629653}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6195073, y: 1.1207733, z: 1.0749285}
+  m_Center: {x: -0.027746856, y: -0.03547311, z: -0.22556591}
 --- !u!1 &1560887418
 GameObject:
   m_ObjectHideFlags: 0
