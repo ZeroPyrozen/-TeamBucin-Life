@@ -70,6 +70,7 @@
     <Compile Include="Assets\External Assets\Supercyan Character Pack Free Sample\Scripts\CameraLogic.cs" />
     <Compile Include="Assets\External Assets\Supercyan Character Pack Free Sample\Scripts\Demo.cs" />
     <Compile Include="Assets\External Assets\Supercyan Character Pack Free Sample\Scripts\SimpleCharacterControl.cs" />
+    <Compile Include="Assets\Scripts\AICat.cs" />
     <Compile Include="Assets\Scripts\AnimatorFunctions.cs" />
     <Compile Include="Assets\Scripts\AreaDetector.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />

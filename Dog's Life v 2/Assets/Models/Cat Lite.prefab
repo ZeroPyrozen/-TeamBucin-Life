@@ -597,9 +597,8 @@ GameObject:
   - component: {fileID: 491335055}
   - component: {fileID: 491335053}
   - component: {fileID: 491335054}
-  - component: {fileID: 491335048}
-  - component: {fileID: 491335051}
   - component: {fileID: 491335052}
+  - component: {fileID: 285749633}
   m_Layer: 0
   m_Name: Cat Lite
   m_TagString: Untagged
@@ -685,34 +684,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5316625, y: 5.454804, z: 7.7955384}
   m_Center: {x: -0.23192489, y: 2.2273989, z: 0.51469356}
---- !u!114 &491335048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1472210036822098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1df63838aec55c440a11c6109c79fe41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wanderRadius: 2
-  wanderTimer: 1
---- !u!114 &491335051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1472210036822098}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92c76f97fc04dea47a2f3e4dd44b8e01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  EnemyDistanceRun: 2
 --- !u!195 &491335052
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -723,7 +694,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -735,6 +706,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &285749633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472210036822098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd2c801a046e7041a39a6edc21eb0ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  wanderRadius: 2
+  wanderTimer: 5
 --- !u!1 &1511705885344030
 GameObject:
   m_ObjectHideFlags: 0
