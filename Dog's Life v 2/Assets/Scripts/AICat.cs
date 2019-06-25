@@ -13,10 +13,19 @@ public class AICat : MonoBehaviour
     private NavMeshAgent agent;
     private float timer;
 
+    public int healthAI = 100;
     void OnEnable () {
         agent = GetComponent<NavMeshAgent> ();
         timer = wanderTimer;
         
+    }
+    public void TakeDamage(int damage)
+    {
+        healthAI -= damage;
+        if(healthAI<=0)
+        {
+            Destroy(this.gameObject);
+        }
     }
     // Start is called before the first frame update
     void Start()

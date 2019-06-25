@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,9 +8,12 @@ public class Player : MonoBehaviour
 {
     public int healthPoint;
     public int score;
+    public TextMeshProUGUI scorePoint;
+    public TextMeshProUGUI health;
     public void AddPlayerScore(int scoreAddition)
     {
         this.score += scoreAddition;
+        scorePoint.text = score.ToString();
     }
     public void TakeDamage(int damagePoint)
     {
@@ -18,6 +22,7 @@ public class Player : MonoBehaviour
         {
             Dead();
         }
+        health.text = healthPoint.ToString();
     }
     void Dead()
     {
@@ -27,6 +32,8 @@ public class Player : MonoBehaviour
     {
         score = 0;
         healthPoint = 100;
+        health.text = healthPoint.ToString();
+        scorePoint.text = score.ToString();
     }
 
     // Update is called once per frame

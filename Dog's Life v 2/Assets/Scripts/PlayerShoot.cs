@@ -47,7 +47,9 @@ public class PlayerShoot : MonoBehaviour
             {
                 Debug.Log("Cat Found!");
                 player.AddPlayerScore(5);
-                Destroy(_hit.transform.gameObject);
+                AICat cat =  _hit.transform.gameObject.GetComponent<AICat>();
+                cat.TakeDamage(5);
+                //Destroy(_hit.transform.gameObject);
             }
         }
     }
