@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
         {
             PlayGame();
         }
-        else if(menuButtonIndex==2)
+        else if(menuButtonIndex==1)
         {
             QuitGame();
         }
