@@ -8,7 +8,8 @@ public class AICat : MonoBehaviour
     public Player player;
     public float wanderRadius;
     public float wanderTimer;
- 
+    public float regenTimer = 5.0f;
+        
     private Transform target;
     private NavMeshAgent agent;
     private float timer;
@@ -40,13 +41,24 @@ public class AICat : MonoBehaviour
         {
             Debug.Log("Chase");
             ChasePlayer();
+            regenTimer = 5.0f;
         }
         else
         {
             Debug.Log("Wander");
             Wander();
+            Regeneration();
         }
         
+    }
+    private void Regeneration()
+    {
+        regenTimer -= Time.deltaTime;
+        if(regenTimer < 0)
+        {
+            healthAI += 5;
+            regenTimer = 5.0f;
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {

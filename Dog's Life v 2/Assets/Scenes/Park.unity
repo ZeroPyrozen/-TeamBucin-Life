@@ -106,9 +106,9 @@ NavMeshSettings:
     serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.2
-    agentHeight: 2
-    agentSlope: 45
-    agentClimb: 0.4
+    agentHeight: 1
+    agentSlope: 60
+    agentClimb: 1
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -7218,7 +7218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4690543070179610, guid: 1119e036915327f41b12665417dee050, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.19
+      value: 3.67
       objectReference: {fileID: 0}
     - target: {fileID: 4690543070179610, guid: 1119e036915327f41b12665417dee050, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7264,7 +7264,16 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1308131851}
-    m_RemovedComponents: []
+    - target: {fileID: 491335053, guid: 1119e036915327f41b12665417dee050, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491335054, guid: 1119e036915327f41b12665417dee050, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 491335054, guid: 1119e036915327f41b12665417dee050, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1119e036915327f41b12665417dee050, type: 3}
 --- !u!4 &906200194 stripped
 Transform:
@@ -8584,6 +8593,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1240616, y: 8.4804735, z: 1.477883}
   m_Center: {x: -1.440136, y: -2.796361, z: 0.27227798}
+--- !u!1 &1167311762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1472210036822098, guid: 1119e036915327f41b12665417dee050,
+    type: 3}
+  m_PrefabInstance: {fileID: 906200193}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1167311769
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167311762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.4647893
+  m_Height: 5.4021835
+  m_Direction: 1
+  m_Center: {x: 0.052267116, y: 1.4677197, z: 0.3765077}
 --- !u!1 &1181713762
 GameObject:
   m_ObjectHideFlags: 0
@@ -14417,7 +14446,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889004835}
   m_LocalRotation: {x: 0.49999982, y: -0.50000024, z: -0.4999999, w: -0.5000001}
-  m_LocalPosition: {x: 10.313, y: 2.182, z: 3.0100002}
+  m_LocalPosition: {x: 10.313, y: 2, z: 3.0100002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 864885925}

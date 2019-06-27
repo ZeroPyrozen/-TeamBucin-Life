@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
         this.score += scoreAddition;
         scorePoint.text = score.ToString();
     }
+
     public void TakeDamage(int damagePoint)
     {
         this.healthPoint -= damagePoint;
