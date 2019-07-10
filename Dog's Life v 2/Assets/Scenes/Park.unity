@@ -2333,7 +2333,6 @@ GameObject:
   - component: {fileID: 258428572}
   - component: {fileID: 258428569}
   - component: {fileID: 258428568}
-  - component: {fileID: 258428571}
   m_Layer: 5
   m_Name: Trigger
   m_TagString: Untagged
@@ -2454,18 +2453,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 258428566}
   m_CullTransparentMesh: 0
---- !u!114 &258428571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 258428566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6342cc0c7ecec3144a5b9bb89c09f83d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &258428572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2479,11 +2466,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    nama: Catto
+    nama: Elgratio
     kalimat:
-    - Hai
-    - Test Tooo
-    - Sambaranfjanjkvnkanvjanvjkoanjki
+    - Hai Ky
+    - Udh jadi nih dialognya
+    - eaaaa
+    - tapi keknya harus didebug lagi
+    - gw tidur dluan ea
+    - nnti gw cek pas subuh
 --- !u!1 &265298492
 GameObject:
   m_ObjectHideFlags: 0
@@ -12301,8 +12291,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1590946259}
-        m_MethodName: Test
+      - m_Target: {fileID: 258428572}
+        m_MethodName: NextDialogue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12328,7 +12318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -13214,6 +13204,7 @@ GameObject:
   - component: {fileID: 1589395769}
   - component: {fileID: 1589395771}
   - component: {fileID: 1589395770}
+  - component: {fileID: 1589395772}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -13280,6 +13271,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589395768}
   m_CullTransparentMesh: 0
+--- !u!95 &1589395772
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589395768}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32cd2b58664b13c4b82144d89946dfb0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1590946258
 GameObject:
   m_ObjectHideFlags: 0
@@ -13309,6 +13319,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6342cc0c7ecec3144a5b9bb89c09f83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Counter: 0
+  DialogueCheck: 0
+  NamaDisplay: {fileID: 1979692567}
+  TextDisplay: {fileID: 1581536722}
+  animator: {fileID: 1589395772}
 --- !u!4 &1590946260
 Transform:
   m_ObjectHideFlags: 0

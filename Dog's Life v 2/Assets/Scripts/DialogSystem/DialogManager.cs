@@ -1,51 +1,57 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
-    public Queue<string> kalimat;
+
+    public int Counter; 
+    public bool DialogueCheck;
+    public GameObject NamaDisplay;
+    public GameObject TextDisplay;
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
-        kalimat = new Queue<string>();
+        DialogueCheck = false;
     }
 
     public void StartDialogue (Dialogue dialogue)
     {
-        Debug.Log("Starting Conversation with " + dialogue.nama);
-        Debug.Log("Kalimat di sebelum Clear : " + kalimat.Count);
-        kalimat.Clear();
-        Debug.Log("Kalimat di setelah Clear : " + kalimat.Count);
-        foreach (string kalimats in dialogue.kalimat)
+        animator.SetBool("isOpen", true);
+        if (DialogueCheck == false)
         {
-            kalimat.Enqueue(kalimats);
-            Debug.Log("dalam Foreach : " + kalimat.Count);
+            Text Nama = NamaDisplay.GetComponent<Text>();
+            Nama.text = dialogue.nama.ToString();
+            //Debug.Log(Nama.text);
+            Counter = 0;
+            DisplayNextKalimat(dialogue,dialogue.MaxArr());
+            DialogueCheck = true;
         }
-
-        DisplayNextKalimat();
-        Debug.Log("setelah Hai : " + kalimat.Count);
     }
 
-    public void Test()
+    public void DisplayNextKalimat(Dialogue dialogue, int CounterIN)
     {
-        Debug.Log("Current kalimat queue qount: " + kalimat.Count);
-    }
-
-    public void DisplayNextKalimat()
-    {
-        if (kalimat.Count == 0)
+        Text Kalimat = TextDisplay.GetComponent<Text>();
+        
+        if (Counter == CounterIN)
         {
-            Debug.Log("Kalimat di DisplayNextKalimat : "+kalimat.Count);
             EndDialogue();
+            Kalimat.text = "";
             return;
         }
-        string kalimatDisplay = kalimat.Dequeue();
-        Debug.Log(kalimatDisplay);
+        Kalimat.text = dialogue.kalimat[Counter].ToString();
+        Debug.Log(Kalimat.text);
+        Counter++;
     }
 
     void EndDialogue()
     {
         Debug.Log("End Of Convorsation");
+        animator.SetBool("isOpen", false);
+        Counter = 0;
+        
     }
 }
