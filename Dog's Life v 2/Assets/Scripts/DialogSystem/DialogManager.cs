@@ -20,7 +20,7 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialogue (Dialogue dialogue)
     {
-        animator.SetBool("isOpen", true);
+        //animator.SetBool("isOpen", true);
         if (DialogueCheck == false)
         {
             Text Nama = NamaDisplay.GetComponent<Text>();
@@ -50,7 +50,7 @@ public class DialogManager : MonoBehaviour
     void EndDialogue()
     {
         Debug.Log("End Of Convorsation");
-        animator.SetBool("isOpen", false);
+        //animator.SetBool("isOpen", false);
         Counter = 0;
         
     }

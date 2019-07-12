@@ -69,9 +69,9 @@
      <Compile Include="Assets\Scripts\DialogSystem\DialogManager.cs" />
      <Compile Include="Assets\Scripts\DialogSystem\Dialogue.cs" />
      <Compile Include="Assets\Scripts\DialogSystem\DialogueTrigger.cs" />
-     <Compile Include="Assets\Scripts\DialogueScene\DrawingInput.cs" />
-     <Compile Include="Assets\Scripts\DialogueScene\DrawingSliding.cs" />
-     <Compile Include="Assets\Scripts\DialogueScene\DrawingTrigger.cs" />
+     <Compile Include="Assets\Scripts\DialogueScene\SpriteDialogueManager.cs" />
+     <Compile Include="Assets\Scripts\DialogueScene\SpriteDialogueScript.cs" />
+     <Compile Include="Assets\Scripts\DialogueScene\SpriteTrigger.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\MenuButton.cs" />
      <Compile Include="Assets\Scripts\MenuButtonController.cs" />
