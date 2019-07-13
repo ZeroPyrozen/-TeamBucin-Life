@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SpriteTrigger : MonoBehaviour
 {
     public SpriteDialogueScript sprite;
+    private bool hasStart = false;
     void Awake()
     {
         TriggerDialogue();
@@ -13,12 +14,19 @@ public class SpriteTrigger : MonoBehaviour
     public void TriggerDialogue()
     {
         FindObjectOfType<SpriteDialogueManager>().StartDialogue(sprite);
-
+        hasStart = true;
     }
 
     public void NextDialogue()
     {
         FindObjectOfType<SpriteDialogueManager>().DisplayNextKalimat(sprite);
 
+    }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Return) && hasStart)
+        {
+            NextDialogue();
+        }
     }
 }

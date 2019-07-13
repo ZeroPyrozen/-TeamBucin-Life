@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: ea87c1eac604253448e4053022b856e0
   - enabled: 1
+    path: Assets/Scenes/Opening Sequence.unity
+    guid: dd65b1f47c3923d4a93ec9c41ac995a6
+  - enabled: 1
     path: Assets/Scenes/Park.unity
     guid: b88abed51b2d2454abab3ce71c0b5875
   - enabled: 1
