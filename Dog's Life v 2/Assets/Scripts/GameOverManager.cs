@@ -27,8 +27,9 @@ public class GameOverManager : MonoBehaviour
             return;
         }           
         SaveSystem.SavePlayer(name,score);
+        gameStatus.playerScore = 0;
         //Load Main Menu
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Main Menu");
     }
     // Update is called once per frame
     void Update()

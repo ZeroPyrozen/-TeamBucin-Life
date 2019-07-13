@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI scorePoint;
     public TextMeshProUGUI health;
     public GameStatus gameStatus;
+    private int ballCollected;
+    private int ballInLevel;
+    public GameObject balls;
     public void AddPlayerScore(int scoreAddition)
     {
         this.score += scoreAddition;
@@ -29,19 +32,46 @@ public class Player : MonoBehaviour
     void Dead()
     {
         gameStatus.playerScore = score;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        SceneManager.LoadScene("Game Over");
+    }
+    void LevelUp()
+    {
+        gameStatus.playerScore = score;
+        if(SceneManager.GetActiveScene().name=="Park 2")
+        {
+            SceneManager.LoadScene("Game Over");
+        }
+        else if(SceneManager.GetActiveScene().name=="Park")
+        {
+            SceneManager.LoadScene("Park 2");
+        }
+        
     }
     void Start()
     {
-        score = 0;
+        score = gameStatus.playerScore;
         healthPoint = 100;
         health.text = healthPoint.ToString();
         scorePoint.text = score.ToString();
+        ballCollected = 0;
+        ballInLevel = balls.transform.childCount;
+        Debug.Log(ballInLevel);
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Ball")
+        {
+            ballCollected++;
+            AddPlayerScore(20);
+            Destroy(collision.gameObject);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-
+        if(ballCollected == ballInLevel)
+        {
+            LevelUp();
+        }
     }
 }
