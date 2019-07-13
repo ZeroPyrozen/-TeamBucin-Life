@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PenahanGambar
+  - Ball
   layers:
   - Default
   - TransparentFX
