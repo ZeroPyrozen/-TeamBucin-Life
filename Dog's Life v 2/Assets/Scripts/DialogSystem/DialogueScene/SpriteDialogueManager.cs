@@ -12,19 +12,19 @@ public class SpriteDialogueManager : MonoBehaviour
     public bool SpriteDialogueCheck;
     //public GameObject NamaDisplay;
     public GameObject TextDisplay;
-    //public Animator animator;
+    public Animator animator;
     public GameObject spriteHolder;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         SpriteDialogueCheck = false;
-        
+
     }
 
     public void StartDialogue(SpriteDialogueScript spriteScript)
     {
-        
+
         //animator.SetBool("isOpen", true);
         if (SpriteDialogueCheck == false)
         {
@@ -50,10 +50,10 @@ public class SpriteDialogueManager : MonoBehaviour
             Kalimat.text = "";
             return;
         }
-        if (Counter == 1 || Counter == 4 || Counter == 11 || Counter == 15)
+        if (Counter == 1 || Counter == 6)
         {
             spriteHolder.GetComponent<SpriteRenderer>().sprite = spriteScript.sprites[CounterSprite];
-            CounterSprite++;
+            if (Counter == 6) { animator.SetBool("PanelUp", false); }
         }
 
         //Kalimat.text = spriteScript.kalimat[Counter].ToString();
@@ -67,7 +67,7 @@ public class SpriteDialogueManager : MonoBehaviour
     {
 
         Debug.Log("End Of Convorsation");
-        SceneManager.LoadScene("Park");
+        //SceneManager.LoadScene("Park");
         //animator.SetBool("isOpen", false);
         //ini lanjut ke scene berikutnya
 
