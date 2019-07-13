@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SpriteDialogueManager : MonoBehaviour
@@ -13,7 +14,7 @@ public class SpriteDialogueManager : MonoBehaviour
     public GameObject TextDisplay;
     //public Animator animator;
     public GameObject spriteHolder;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class SpriteDialogueManager : MonoBehaviour
 
     public void StartDialogue(SpriteDialogueScript spriteScript)
     {
+        
         //animator.SetBool("isOpen", true);
         if (SpriteDialogueCheck == false)
         {
@@ -63,7 +65,9 @@ public class SpriteDialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+
         Debug.Log("End Of Convorsation");
+        SceneManager.LoadScene("Park");
         //animator.SetBool("isOpen", false);
         //ini lanjut ke scene berikutnya
 

@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
+    public GameStatus gameStatus;
     public MainMenu(int menuButtonIndex)
     {
         if(menuButtonIndex==0)
         {
+            
             PlayGame();
         }
         else if(menuButtonIndex==1)
@@ -15,11 +17,15 @@ public class MainMenu : MonoBehaviour
             QuitGame();
         }
     }
+    private void Start()
+    {
+       gameStatus.playerScore = 0;
+    }
     public void PlayGame()
     {
         //Load first level
         Debug.Log("Enter first scene");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        SceneManager.LoadScene("Opening Sequence");
     }
     public void QuitGame()
     {
