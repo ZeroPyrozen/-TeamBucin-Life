@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public int score;
     public TextMeshProUGUI scorePoint;
     public TextMeshProUGUI health;
+    public GameStatus gameStatus;
     public void AddPlayerScore(int scoreAddition)
     {
         this.score += scoreAddition;
@@ -27,7 +28,8 @@ public class Player : MonoBehaviour
     }
     void Dead()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
+        gameStatus.playerScore = score;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
     void Start()
     {

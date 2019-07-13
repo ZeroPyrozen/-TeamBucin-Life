@@ -15,7 +15,7 @@ public class PlayerMotor : MonoBehaviour {
     private Vector3 camerarotation = Vector3.zero;
     private Rigidbody rb;
     public static Vector3 playerPos;
-
+    public bool isGrounded;
   void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -64,6 +64,11 @@ public class PlayerMotor : MonoBehaviour {
         {
             rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
         }
+        if (Input.GetKeyDown(KeyCode.Space)&&isGrounded)
+        {
+            rb.AddForce(new Vector3(0, 1, 0), ForceMode.Impulse);
+            isGrounded = false;
+        }
     }
 
     void PerformRotation()
@@ -78,9 +83,8 @@ public class PlayerMotor : MonoBehaviour {
 
     }
 
-    
-}
-
-internal class Enumerator
-{
+    void OnCollisionStay()
+    {
+        isGrounded = true;
+    }
 }
