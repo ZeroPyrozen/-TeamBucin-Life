@@ -10,11 +10,23 @@ public class GameOverManager : MonoBehaviour
     public TMP_InputField inputField;
     public TextMeshProUGUI playerScore;
     public TextMeshProUGUI playerName;
-    public GameStatus gameStatus;        
+    public GameStatus gameStatus; 
+    public GameObject lose;
+    public GameObject win;
     // Start is called before the first frame update
     void Start()
     {
         playerScore.text = gameStatus.playerScore.ToString();
+        if(gameStatus.isWin)
+        {
+            win.SetActive(true);
+            lose.SetActive(false);
+        }
+        else
+        {
+            win.SetActive(false);
+            lose.SetActive(true);
+        }
     }
     public void Submit()
     {

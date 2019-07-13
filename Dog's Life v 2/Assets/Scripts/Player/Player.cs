@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public int score;
     public TextMeshProUGUI scorePoint;
     public TextMeshProUGUI health;
+    public TextMeshProUGUI ballPoint;
     public GameStatus gameStatus;
     private int ballCollected;
     private int ballInLevel;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     {
         this.score += scoreAddition;
         scorePoint.text = score.ToString();
+        ballPoint.text = ballCollected.ToString()+"/"+ballInLevel.ToString();
     }
 
     public void TakeDamage(int damagePoint)
@@ -39,6 +41,7 @@ public class Player : MonoBehaviour
         gameStatus.playerScore = score;
         if(SceneManager.GetActiveScene().name=="Park 2")
         {
+            gameStatus.isWin = true;
             SceneManager.LoadScene("Game Over");
         }
         else if(SceneManager.GetActiveScene().name=="Park")
@@ -55,6 +58,7 @@ public class Player : MonoBehaviour
         scorePoint.text = score.ToString();
         ballCollected = 0;
         ballInLevel = balls.transform.childCount;
+        ballPoint.text = ballCollected.ToString()+"/"+ballInLevel.ToString();
         Debug.Log(ballInLevel);
     }
     private void OnCollisionEnter(Collision collision)
