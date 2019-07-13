@@ -7,11 +7,11 @@ public class SpriteDialogueScript
 {
     public Sprite[] sprites;
     [TextArea(4, 10)]
-    
+   
     public string[] kalimat;
-    public int MaxArr()
-    {
-        return kalimat.Length;
-    }
-    
+    public int[] delayTiapKatadiKalimat; //mohon isi arraynya sesuai banyak array kalimat
+
+
+
+
 }

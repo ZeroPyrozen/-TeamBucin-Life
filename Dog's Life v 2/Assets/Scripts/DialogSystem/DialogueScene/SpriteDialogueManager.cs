@@ -7,6 +7,7 @@ public class SpriteDialogueManager : MonoBehaviour
 {
 
     public int Counter;
+    public int CounterSprite = 0;
     public bool SpriteDialogueCheck;
     //public GameObject NamaDisplay;
     public GameObject TextDisplay;
@@ -17,6 +18,7 @@ public class SpriteDialogueManager : MonoBehaviour
     void Start()
     {
         SpriteDialogueCheck = false;
+        
     }
 
     public void StartDialogue(SpriteDialogueScript spriteScript)
@@ -24,29 +26,38 @@ public class SpriteDialogueManager : MonoBehaviour
         //animator.SetBool("isOpen", true);
         if (SpriteDialogueCheck == false)
         {
+
             //Text Nama = NamaDisplay.GetComponent<Text>();
             //Nama.text = sprite.nama.ToString();
             //Debug.Log(Nama.text);
-            spriteHolder.GetComponent<SpriteRenderer>().sprite = spriteScript.sprites[Counter];
+
+
+
             Counter = 0;
-            DisplayNextKalimat(spriteScript, spriteScript.MaxArr());
+            DisplayNextKalimat(spriteScript);
             SpriteDialogueCheck = true;
         }
     }
 
-    public void DisplayNextKalimat(SpriteDialogueScript spriteScript, int CounterIN)
+    public void DisplayNextKalimat(SpriteDialogueScript spriteScript)
     {
         Text Kalimat = TextDisplay.GetComponent<Text>();
-
-        if (Counter == CounterIN)
+        if (Counter == spriteScript.kalimat.Length)
         {
             EndDialogue();
             Kalimat.text = "";
             return;
         }
-        spriteHolder.GetComponent<SpriteRenderer>().sprite = spriteScript.sprites[Counter];
-        Kalimat.text = spriteScript.kalimat[Counter].ToString();
-        Debug.Log(Kalimat.text);
+        if (Counter == 1 || Counter == 4 || Counter == 11 || Counter == 15)
+        {
+            spriteHolder.GetComponent<SpriteRenderer>().sprite = spriteScript.sprites[CounterSprite];
+            CounterSprite++;
+        }
+
+        //Kalimat.text = spriteScript.kalimat[Counter].ToString();
+        StopAllCoroutines();
+        StartCoroutine(TypingEffect(Kalimat, spriteScript.kalimat[Counter], spriteScript.delayTiapKatadiKalimat[Counter]));
+        //Debug.Log(Kalimat.text);
         Counter++;
     }
 
@@ -54,7 +65,18 @@ public class SpriteDialogueManager : MonoBehaviour
     {
         Debug.Log("End Of Convorsation");
         //animator.SetBool("isOpen", false);
-        Counter = 0;
+        //ini lanjut ke scene berikutnya
 
+    }
+
+
+    IEnumerator TypingEffect (Text kalimat,string kalimatIE, int Delay)
+    {
+        kalimat.text = "";
+        foreach (char letter in kalimatIE.ToCharArray())
+        {
+            kalimat.text += letter;
+            yield return Delay;
+        }
     }
 }
