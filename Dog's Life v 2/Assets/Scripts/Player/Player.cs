@@ -12,7 +12,8 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI health;
     public GameStatus gameStatus;
     private int ballCollected;
-    public int ballInLevel;
+    private int ballInLevel;
+    public GameObject balls;
     public void AddPlayerScore(int scoreAddition)
     {
         this.score += scoreAddition;
@@ -36,7 +37,15 @@ public class Player : MonoBehaviour
     void LevelUp()
     {
         gameStatus.playerScore = score;
-        SceneManager.LoadScene("Park 2");
+        if(SceneManager.GetActiveScene().name=="Park 2")
+        {
+            SceneManager.LoadScene("Game Over");
+        }
+        else if(SceneManager.GetActiveScene().name=="Park")
+        {
+            SceneManager.LoadScene("Park 2");
+        }
+        
     }
     void Start()
     {
@@ -45,8 +54,18 @@ public class Player : MonoBehaviour
         health.text = healthPoint.ToString();
         scorePoint.text = score.ToString();
         ballCollected = 0;
+        ballInLevel = balls.transform.childCount;
+        Debug.Log(ballInLevel);
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Ball")
+        {
+            ballCollected++;
+            AddPlayerScore(20);
+            Destroy(collision.gameObject);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
