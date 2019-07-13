@@ -9,6 +9,7 @@ public static class SaveSystem
 {
     public static void SavePlayer(string name, string score)
     {
+        
         string savePath = Application.persistentDataPath + "/leaderboard.txt";
         Debug.Log("Data Saved in " + savePath);
         string s = name + " - " + score;
