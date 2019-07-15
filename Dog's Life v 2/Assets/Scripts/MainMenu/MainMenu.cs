@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
        gameStatus.playerScore = 0;
+       gameStatus.isWin = false;
     }
     public void PlayGame()
     {

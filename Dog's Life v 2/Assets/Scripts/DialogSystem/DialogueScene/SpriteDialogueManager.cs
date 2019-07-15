@@ -50,6 +50,7 @@ public class SpriteDialogueManager : MonoBehaviour
             Kalimat.text = "";
             return;
         }
+        
         if (Counter == 1 || Counter == 6)
         {
             spriteHolder.GetComponent<SpriteRenderer>().sprite = spriteScript.sprites[CounterSprite];
@@ -66,7 +67,15 @@ public class SpriteDialogueManager : MonoBehaviour
     void EndDialogue()
     {
 
-        Debug.Log("End Of Convorsation");
+        Debug.Log("End Of Conversation");
+        if(SceneManager.GetActiveScene().name=="Opening Sequence")
+        {
+            SceneManager.LoadScene("Park");
+        }
+        else if(SceneManager.GetActiveScene().name=="Ending Sequence")
+        {
+            SceneManager.LoadScene("Game Over");
+        }
         //SceneManager.LoadScene("Park");
         //animator.SetBool("isOpen", false);
         //ini lanjut ke scene berikutnya

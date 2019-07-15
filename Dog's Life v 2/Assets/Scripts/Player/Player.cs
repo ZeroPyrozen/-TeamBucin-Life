@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     void Dead()
     {
         gameStatus.playerScore = score;
-        SceneManager.LoadScene("Game Over");
+        SceneManager.LoadScene("Ending Sequence");
     }
     void LevelUp()
     {
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         if(SceneManager.GetActiveScene().name=="Park 2")
         {
             gameStatus.isWin = true;
-            SceneManager.LoadScene("Game Over");
+            SceneManager.LoadScene("Ending Sequence");
         }
         else if(SceneManager.GetActiveScene().name=="Park")
         {
